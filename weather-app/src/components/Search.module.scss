@@ -1,0 +1,71 @@
+$bg-color: #23214a;
+$text-color: #e8e8fa;
+$hover-color: rgba(232, 232, 250, 0.1);
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  .form {
+    // width: 300px;
+    position: relative;
+    width: 80%;
+    color: $text-color;
+    .input {
+      background-color: $bg-color;
+      border: none;
+      height: 40px;
+      color: $text-color;
+      font-weight: bold;
+      border-radius: 13px;
+      padding: 0 20px;
+      width: 100%;
+      outline: none;
+      &.open {
+        border-radius: 8px 8px 0 0;
+      }
+    }
+    .dropdown {
+      background-color: $bg-color;
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      position: absolute;
+      top: 22px;
+      left: 0;
+      &.open {
+        border-radius: 0 0 8px 8px;
+      }
+      .notFound {
+        padding-bottom: 5px;
+      }
+      .item {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+        &:hover {
+          background-color: $hover-color;
+        }
+      }
+      .country {
+        width: 110px;
+      }
+      // .flag{
+      //   height: 8px;
+      // }
+      .temp {
+        width: 70px;
+      }
+      .icon {
+        display: inline-flex;
+        height: 45px;
+      }
+      .coord {
+        font-size: 10px;
+        width: 50px;
+      }
+    }
+  }
+}

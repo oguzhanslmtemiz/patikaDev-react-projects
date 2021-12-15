@@ -13,11 +13,11 @@ exports.handler = async function (event) {
     const { data } = await axios.get(WEATHER_API);
     return {
       statusCode: 200,
-      body: JSON.stringify({ data }),
+      body: JSON.stringify(data),
     };
   } catch (error) {
     return {
-      statusCode: 500,
+      statusCode: error.response.status,
       body: JSON.stringify(error),
     };
   }

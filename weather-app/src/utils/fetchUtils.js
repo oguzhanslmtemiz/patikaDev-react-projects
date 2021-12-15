@@ -12,9 +12,13 @@ export const fetchLocation = async (city, units, lang) => {
 };
 
 export const fetchForecast = async (coord, city, country, units, lang) => {
-  const { lat, lon } = coord;
-  const { data } = await axios.get(
-    `/.netlify/functions/getForecast?lat=${lat}&lon=${lon}&units=${units}&lang=${lang}`
-  );
-  return { data, city, country };
+  try {
+    const { lat, lon } = coord;
+    const { data } = await axios.get(
+      `/.netlify/functions/getForecast?lat=${lat}&lon=${lon}&units=${units}&lang=${lang}`
+    );
+    return { data, city, country };
+  } catch (error) {
+    return { error };
+  }
 };

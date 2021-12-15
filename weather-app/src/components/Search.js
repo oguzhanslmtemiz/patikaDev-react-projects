@@ -5,7 +5,8 @@ import { fetchLocation, fetchForecast } from "../utils/fetchUtils";
 import styles from "./Search.module.scss";
 
 export default function Search() {
-  const { city, setCity, units, lang, setForecast } = useWeatherContext();
+  const { city, setCity, units, lang, setForecast, setIsFetching } =
+    useWeatherContext();
   const [input, setInput] = useState("");
   const [locations, setLocations] = useState([]);
   const [dropdown, setDropdown] = useState(false);
@@ -77,10 +78,11 @@ export default function Search() {
                 className={styles.item}
                 key={id}
                 onClick={async () => {
+                  setIsFetching(true);
                   setForecast(
                     await fetchForecast(coord, name, sys.country, units, lang)
                   );
-                  setDropdown(false);
+                  setDropdownClass("remove");
                 }}
               >
                 <span className={styles.country}>
@@ -110,3 +112,5 @@ export default function Search() {
     </div>
   );
 }
+
+// export

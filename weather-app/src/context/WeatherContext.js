@@ -8,6 +8,7 @@ export function WeatherProvider({ children }) {
   const [units, setUnits] = useState("metric");
   const [lang, setLang] = useState("tr");
   const [forecast, setForecast] = useState({});
+  const [isFetching, setIsFetching] = useState(false);
 
   const values = {
     city,
@@ -20,6 +21,8 @@ export function WeatherProvider({ children }) {
     setLang,
     forecast,
     setForecast,
+    isFetching,
+    setIsFetching,
   };
   return (
     <WeatherContext.Provider value={values}>{children}</WeatherContext.Provider>

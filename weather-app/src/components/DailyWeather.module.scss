@@ -1,0 +1,43 @@
+$bg-color: rgb(35, 33, 74);
+$text-color: #e8e8fa;
+$hover-color: rgba(232, 232, 250, 0.1);
+$breakpoints: (
+  md: 768px,
+  lg: 1200px,
+);
+
+@mixin media($keys...) {
+  @each $key in $keys {
+    @media (min-width: map-get($breakpoints, $key)) {
+      @content;
+    }
+  }
+}
+
+.daily {
+  display: flex;
+  overflow-x: auto;
+  width: 96%;
+  gap: 10px;
+  margin: 20px 0;
+  @include media(md) {
+    justify-content: center;
+  }
+  .card {
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 96px;
+    height: 120px;
+    background-color: $bg-color;
+    border-radius: 10px;
+    .icon {
+      margin: -15px 0;
+    }
+    .temp {
+      font-size: 2em;
+    }
+  }
+}

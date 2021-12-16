@@ -79,10 +79,10 @@ export default function Search() {
                 key={id}
                 onClick={async () => {
                   setIsFetching(true);
+                  setDropdownClass("remove");
                   setForecast(
                     await fetchForecast(coord, name, sys.country, units, lang)
                   );
-                  setDropdownClass("remove");
                 }}
               >
                 <span className={styles.country}>
@@ -99,7 +99,7 @@ export default function Search() {
                 <span className={styles.icon}>
                   <img
                     alt="icon"
-                    src={`http://openweathermap.org/img/wn/${weather[0].icon}.png`}
+                    src={`https://openweathermap.org/img/wn/${weather[0].icon}.png`}
                   />
                 </span>
                 <span className={styles.coord}>

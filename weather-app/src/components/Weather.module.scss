@@ -9,35 +9,5 @@ $hover-color: rgba(232, 232, 250, 0.1);
   align-items: center;
   color: white;
   margin-top: 30px;
-  .today {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    .icon {
-      margin: -45px 0;
-    }
-    .desc {
-      display: inline-flex;
-      padding: 10px;
-      border-radius: 20px;
-      background-color: $bg-color;
-    }
-    .temp {
-      font-size: 3em;
-    }
-    .other {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      svg {
-        font-size: 30px;
-      }
-      span {
-        display: grid;
-        justify-items: center;
-      }
-    }
-  }
+  overflow: hidden;
 }

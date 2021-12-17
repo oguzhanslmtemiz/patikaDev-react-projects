@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import BarLoader from "react-spinners/BarLoader";
 import { useWeatherContext } from "../context/WeatherContext";
 import { fetchLocation, fetchForecast } from "../utils/fetchUtils";
+import { IoMdSearch } from "react-icons/io";
 import styles from "./Search.module.scss";
+import Settings from "./Settings";
 
 export default function Search() {
   const { city, setCity, units, lang, setForecast, setIsFetching } =
@@ -56,12 +58,15 @@ export default function Search() {
       <form className={styles.form} ref={dropdownRef} onSubmit={handleSubmit}>
         <input
           className={styles.input}
-          placeholder="Search"
           type="search"
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-
+        <IoMdSearch
+          style={{ left: "5px", top: "8px", position: "absolute" }}
+          color="rgba(232, 232, 250, 0.5)"
+          size="1.5em"
+        />
         <BarLoader
           loading={loading}
           color="white"
@@ -94,7 +99,7 @@ export default function Search() {
                   />
                 </span>
                 <span className={styles.temp}>
-                  {main.temp.toFixed(1)}°{units === "metric" ? "C" : "F"}
+                  {main.temp.toFixed(1)}°{units.value === "metric" ? "C" : "F"}
                 </span>
                 <span className={styles.icon}>
                   <img
@@ -109,8 +114,7 @@ export default function Search() {
             ))}
         </ul>
       </form>
+      <Settings />
     </div>
   );
 }
-
-// export

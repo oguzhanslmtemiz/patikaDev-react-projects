@@ -1,0 +1,23 @@
+$bg-color: #23214a;
+$text-color: #e8e8fa;
+$hover-color: rgba(232, 232, 250, 0.1);
+
+.container {
+  max-width: 130px;
+  position: absolute;
+  right: 0;
+}
+.menu {
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  padding: 5px;
+  &:hover {
+    background-color: $hover-color;
+    border-radius: 50px;
+  }
+  svg {
+    color: $text-color;
+    font-size: 2rem;
+  }
+}

@@ -5,8 +5,8 @@ const WeatherContext = createContext();
 export function WeatherProvider({ children }) {
   const [city, setCity] = useState("");
   const [coord, setCoord] = useState({ lat: 41.0351, lon: 28.9833 });
-  const [units, setUnits] = useState("metric");
-  const [lang, setLang] = useState("tr");
+  const [units, setUnits] = useState({ value: "metric", label: "°C, m/s" });
+  const [lang, setLang] = useState({ value: "tr", label: "Turkish" });
   const [forecast, setForecast] = useState({});
   const [isFetching, setIsFetching] = useState(false);
 

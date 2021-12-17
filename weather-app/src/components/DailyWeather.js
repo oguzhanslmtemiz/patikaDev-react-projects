@@ -4,13 +4,12 @@ import "moment/min/locales";
 import styles from "./DailyWeather.module.scss";
 
 export default function DailyWeather({ forecast, imageLoaded, units, lang }) {
-  console.log("Daily:", forecast.data.daily);
   return (
     <div className={styles.daily}>
       {forecast.data.daily.slice(1).map((day) => (
         <div className={styles.card} key={day.dt}>
           <div className={styles.day}>
-            {moment.unix(day.dt).locale(lang).format("dddd")}
+            {moment.unix(day.dt).locale(lang.value).format("dddd")}
           </div>
           <div
             className={styles.icon}
@@ -22,7 +21,7 @@ export default function DailyWeather({ forecast, imageLoaded, units, lang }) {
             />
           </div>
           <div className={styles.temp}>
-            {day.temp.day.toFixed(0)}°{units === "metric" ? "C" : "F"}
+            {day.temp.day.toFixed(0)}°{units.value === "metric" ? "C" : "F"}
           </div>
         </div>
       ))}

@@ -8,7 +8,6 @@ export default function TodayWeather({
   setImageLoaded,
   units,
 }) {
-  console.log("TODAY", forecast);
   return (
     <div className={styles.today}>
       <div className={styles.city}>
@@ -33,7 +32,7 @@ export default function TodayWeather({
         {forecast.data.current.weather[0].description}
       </div>
       <div className={styles.temp}>
-        {forecast.data.current.temp}°{units === "metric" ? "C" : "F"}
+        {forecast.data.current.temp}°{units.value === "metric" ? "C" : "F"}
       </div>
       <div className={styles.other}>
         <span>
@@ -41,7 +40,7 @@ export default function TodayWeather({
         </span>
         <span>
           <WiStrongWind /> {forecast.data.current.wind_speed}
-          {units === "metric" ? " m/s" : " mph"}
+          {units.value === "metric" ? " m/s" : " mph"}
         </span>
         <span>
           <WiBarometer /> {forecast.data.current.pressure} hPa
